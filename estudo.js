@@ -1,14 +1,42 @@
+function moeda(atual){
+  return atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+}
+
+
 function total(){
   let c = document.getElementById("valor").value;
   let j = document.getElementById("juros").value;
   let t = document.getElementById("meses").value;
   let r = 0;
+
+  if(!Number(c)){
+    alert("Voce é Gay");
+    document.getElementyById("Valor").value ="";
+    document.getElementById("valor").focus();
+    return
+  }
+
+
+   if(!Number(j)){
+    alert("Voce é Gay");
+    document.getElementyById("Valor").value ="";
+    document.getElementById("valor").focus();
+    return
+  }
+
+  if(!Number(t)){
+    alert("Voce é Gay");
+    document.getElementyById("Valor").value ="";
+    document.getElementById("valor").focus();
+    return
+  }
+
   for(let i = 1; i <= t; i++){
       r = c * (1 + (j/100));
-      document.write("Mês " + i + " valor: " + r +"<br>");
+      document.write("Mês " + i + " valor: " + moeda(r) +"<br>");
       c = r;
   }
-  document.write("Resultado: " + r);
+  document.write("Resultado: " + moeda(r));
 }
 
 
@@ -46,5 +74,4 @@ function subtracao(){
         let p = Number(val2)  / Number(c)
         let r = Number(val1) * Number(p);
         document.getElementById("resultado").innerHTML =r;
-        }
-  
+     
